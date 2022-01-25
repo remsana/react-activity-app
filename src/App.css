@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(images/BG-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* width: 100vh; */
+  height: 100vh;
+}
+
+.heading {
+  border: black solid 2px;
+  color: antiquewhite;
+  background-color: rgb(55, 55, 112);
+  margin: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.App {
+  text-align: center;
+
+  /* display: grid;
+  place-items: center; */  
+  
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vh;
+  
+  border: black solid 2px;
+  border-radius: 5px;
+  margin: 15px;
+
+  background-color: rgb(199, 241, 227);
+}
+
+.activityInfo {
+
+  border: 2px solid black;
+  margin: 15px;
+  padding: 0 5px;
+  background-color: rgb(55, 55, 112);
+  border-radius: 5px;
+  color: antiquewhite;
+  padding: 10px;
+
+  
+}
+
+button {
+  margin: 15px;
+  padding: 5px;
+  background-color: rgb(55, 55, 112);
+  border-radius: 5px;
+  color: antiquewhite;
+}
