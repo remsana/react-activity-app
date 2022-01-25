@@ -6,30 +6,25 @@ function App() {
   const [activities, setActivities] = useState([]);
 
   // creating a function to fetch the activites
-
   let fetchActivity = () => {
     let optionsParticipants = document.querySelector("#optionsforParticipants");
     let selectedOption =
       optionsParticipants.options[optionsParticipants.selectedIndex].value;
-    console.log(selectedOption);
 
-    if (selectedOption == 1) {
-      fetch("http://www.boredapi.com/api/activity?participants=1")
-        .then((response) => response.json())
-        .then((data) => setActivities(data));
-    } else if (selectedOption == 2) {
-      fetch("http://www.boredapi.com/api/activity?participants=2")
-        .then((response) => response.json())
-        .then((data) => setActivities(data));
-    } else if (selectedOption == 4) {
-      fetch("http://www.boredapi.com/api/activity?participants=4")
-        .then((response) => response.json())
-        .then((data) => setActivities(data));
-    } else {
+    // console.log(selectedOption);
+    // console.log(typeof selectedOption);
+
+    if (selectedOption == "participants" || selectedOption == "any") {
       fetch("http://www.boredapi.com/api/activity/")
         .then((response) => response.json())
         .then((data) => setActivities(data));
-    }
+    } else {
+      fetch(
+        `http://www.boredapi.com/api/activity?participants=${selectedOption}`
+      )
+        .then((response) => response.json())
+        .then((data) => setActivities(data));
+    }   
   };
 
   // Using UseEffect hook so there is always some info on the page when it is loaded
@@ -47,11 +42,14 @@ function App() {
         participants={activities.participants}
       />
       <select id="optionsforParticipants">
-        <option disabled selected >Choose no. of participants: </option>
-        <option>Show any</option>
-        <option>1</option>
-        <option>2</option>
-        <option>4</option>
+        <option disabled selected value="participants">
+          {" "}
+          Choose no. of participants:{" "}
+        </option>
+        <option value="any">Show any</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="4">4</option>
       </select>
       <button onClick={fetchActivity}>Show Activity</button>
     </div>
