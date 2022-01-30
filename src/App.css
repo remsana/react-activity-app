@@ -4,10 +4,9 @@
 }
 
 body {
-  background-image: url(images/sunset.jpg);
+  background-image: url(images/pixabay_2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  /* width: 100vh; */
   height: 100vh;
 }
 
@@ -23,25 +22,18 @@ body {
 .App {
   text-align: center;
 
-  /* display: grid;
-  place-items: center; */  
-  
-
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75vh;
-  
-  border: black solid 2px;
+
+  border: black double 5px;
   border-radius: 5px;
   margin: 15px;
-
-  background-color: rgb(199, 241, 227);
 }
 
 .activityInfo {
-
   border: 2px solid black;
   margin: 15px;
   padding: 0 5px;
@@ -49,8 +41,6 @@ body {
   border-radius: 5px;
   color: antiquewhite;
   padding: 10px;
-
-  
 }
 
 .activityInfo h4 {
@@ -63,4 +53,41 @@ button {
   background-color: rgb(55, 55, 112);
   border-radius: 5px;
   color: antiquewhite;
+}
+
+/* Loading symbol */
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin: 8px;
+  border: 3px solid antiquewhite;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: antiquewhite transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

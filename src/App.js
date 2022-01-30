@@ -1,9 +1,12 @@
 import "./App.css";
-import Activity from "./Activity";
+import Activity from "./components/Activity";
+import Loading from "./components/Loading";
+
 import { useState, useEffect } from "react";
 
 function App() {
   const [activities, setActivities] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // creating a function to fetch the activites
   let fetchActivity = () => {
@@ -15,16 +18,20 @@ function App() {
     // console.log(typeof selectedOption);
 
     if (selectedOption == "participants" || selectedOption == "any") {
+      setLoading(false);
       fetch("http://www.boredapi.com/api/activity/")
         .then((response) => response.json())
         .then((data) => setActivities(data));
+      setLoading(true);
     } else {
+      setLoading(false);
       fetch(
         `http://www.boredapi.com/api/activity?participants=${selectedOption}`
       )
         .then((response) => response.json())
         .then((data) => setActivities(data));
-    }   
+      setLoading(true);
+    }
   };
 
   // Using UseEffect hook so there is always some info on the page when it is loaded
@@ -34,13 +41,18 @@ function App() {
 
   return (
     <div className="App">
+      <Loading />
       <h1 className="heading">Random Activity Generator</h1>
 
-      <Activity
-        activities={activities.activity}
-        type={activities.type}
-        participants={activities.participants}
-      />
+      {loading ? (
+        <Activity
+          activities={activities.activity}
+          type={activities.type}
+          participants={activities.participants}
+        />
+      ) : (
+        <Loading />
+      )}
       <select id="optionsforParticipants">
         <option disabled selected value="participants">
           {" "}
