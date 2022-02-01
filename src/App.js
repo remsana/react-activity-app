@@ -41,18 +41,19 @@ function App() {
 
   return (
     <div className="App">
-      <Loading />
+      
       <h1 className="heading">Random Activity Generator</h1>
-
-      {loading ? (
+      
+      {!loading ? (
+        <Loading />
+      )
+      : (
         <Activity
           activities={activities.activity}
           type={activities.type}
           participants={activities.participants}
-        />
-      ) : (
-        <Loading />
-      )}
+        />) }
+
       <select id="optionsforParticipants">
         <option disabled selected value="participants">
           {" "}

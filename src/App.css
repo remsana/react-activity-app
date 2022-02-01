@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: url(images/pixabay_2.jpg);
+  background-image: url(images/sunset.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -52,6 +52,7 @@ button {
   padding: 5px;
   background-color: rgb(55, 55, 112);
   border-radius: 5px;
+  border: 2px solid black;;
   color: antiquewhite;
 }
 
